@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 // Import routes
-const apiRoutes = require('./routes/api-routes');
+const apiRoutes = require('./routes/api-routes-minimal');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -49,6 +49,11 @@ app.get('/', (req, res) => {
 // API Routes
 app.use('/api', apiRoutes);
 
+// Simple health check for Railway (placed before all other routes)
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   try {
@@ -68,11 +73,6 @@ app.get('/api/health', (req, res) => {
       timestamp: new Date().toISOString()
     });
   }
-});
-
-// Simple health check for Railway
-app.get('/health', (req, res) => {
-  res.status(200).send('OK');
 });
 
 // Authentication middleware

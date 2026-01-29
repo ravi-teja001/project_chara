@@ -57,6 +57,16 @@ const handleDatabaseCall = async (callback, mockData = []) => {
   }
 };
 
+// Helper function to handle database errors
+const handleDatabaseError = (error, res) => {
+  console.error('Database error:', error);
+  return res.status(500).json({
+    success: false,
+    error: 'Database operation failed',
+    message: error.message
+  });
+};
+
 // Helper function to validate user access
 const validateUserAccess = async (userId, userEmail) => {
   // For mock users, validate using email
