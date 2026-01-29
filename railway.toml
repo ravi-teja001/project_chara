@@ -18,6 +18,3 @@ PORT = "3000"
 JWT_SECRET = "your-super-secret-jwt-key-change-in-production"
 SUPABASE_URL = "https://pwifzztuubxkyrqljtyr.supabase.co"
 SUPABASE_SERVICE_ROLE_KEY = "your_service_role_key_here"
-
-[nixpacks]
-node_version = "20"
