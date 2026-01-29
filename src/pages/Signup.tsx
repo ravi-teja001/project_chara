@@ -30,7 +30,7 @@ export default function Signup() {
   // Redirect if already authenticated
   useEffect(() => {
     if (!authLoading && isAuthenticated) {
-      navigate('/dashboard', { replace: true });
+      navigate('#/dashboard', { replace: true });
     }
   }, [isAuthenticated, authLoading, navigate]);
 
@@ -115,12 +115,12 @@ export default function Signup() {
         if (isAuthenticated) {
           // Auto-redirect to dashboard if logged in
           setTimeout(() => {
-            navigate('/dashboard', { replace: true });
+            navigate('#/dashboard', { replace: true });
           }, 1500);
         } else {
           // Redirect to login if email verification needed
           setTimeout(() => {
-            navigate('/login');
+            navigate('#/login');
           }, 2000);
         }
       } else {
@@ -301,7 +301,7 @@ export default function Signup() {
 
               <div className="text-sm text-center pt-2">
                 <span className="text-muted-foreground">Already have an account? </span>
-                <a href="/login" className="text-primary font-medium hover:underline">
+                <a href="#/login" className="text-primary font-medium hover:underline">
                   Login
                 </a>
               </div>

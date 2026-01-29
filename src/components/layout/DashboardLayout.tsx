@@ -31,7 +31,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
   if (!isAuthenticated) {
     // Preserve the current location so user can return after login
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="#/login" state={{ from: location }} replace />;
   }
 
   return (

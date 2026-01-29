@@ -44,7 +44,7 @@ export default function Index() {
 
   useEffect(() => {
     if (!authLoading && isAuthenticated) {
-      navigate('/dashboard');
+      navigate('#/dashboard');
     }
   }, [isAuthenticated, authLoading, navigate]);
 
@@ -118,9 +118,9 @@ export default function Index() {
         setTimeout(() => {
           // If message says "logged in", go to dashboard, otherwise go to login
           if (result.message.includes('logged in')) {
-            navigate('/dashboard');
+            navigate('#/dashboard');
           } else {
-            navigate('/login');
+            navigate('#/login');
           }
         }, 500);
       } else {
@@ -268,7 +268,7 @@ export default function Index() {
           <p className="mt-8 text-center text-sm text-muted-foreground">
             Already have an account?{' '}
             <button
-              onClick={() => navigate('/login')}
+              onClick={() => navigate('#/login')}
               className="text-primary hover:underline font-medium"
             >
               Sign In

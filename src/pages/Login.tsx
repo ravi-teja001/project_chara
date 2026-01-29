@@ -89,7 +89,7 @@ export default function Login() {
     
     if (!authLoading && isAuthenticated && !isRecoveryMode && !hasRecoveryToken) {
       // Get the page user was trying to access from location state, or default to dashboard
-      const from = (location.state as any)?.from?.pathname || '/dashboard';
+      const from = (location.state as any)?.from?.pathname || '#/dashboard';
       navigate(from, { replace: true });
     }
   }, [isAuthenticated, authLoading, isRecoveryMode, navigate, location]);
@@ -160,7 +160,7 @@ export default function Login() {
       console.log('Login function returned:', success);
       if (success) {
         console.log('Login successful, navigating to dashboard...');
-        navigate('/dashboard');
+        navigate('#/dashboard');
       } else {
         setError('Login failed. Please try again.');
       }
@@ -520,7 +520,7 @@ export default function Login() {
               <div className="text-sm text-center pt-2 space-y-1">
                 <div>
                   <span className="text-muted-foreground">Don't have an account? </span>
-                  <a href="/signup" className="text-primary font-medium hover:underline">
+                  <a href="#/signup" className="text-primary font-medium hover:underline">
                     Sign Up
                   </a>
                 </div>
